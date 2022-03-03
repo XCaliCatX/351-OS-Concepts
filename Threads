@@ -1,0 +1,100 @@
+// ConsoleApplication1.cpp : Simple Command Line Interpreter.
+// Copyright (c) Kim Eaton 2022
+
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <thread>
+using namespace std;
+
+
+// function to call command with thread
+void callCommand(string cmd) {
+    system((cmd).c_str());
+}
+int main()
+{
+
+    //intro, not in loop so it isnt showing constantly
+    cout << "Welcome to my shell!\n";
+
+    // loop for continuous "shell"
+    do {
+
+
+        //holds user input
+        string input;
+
+        cout << "==> ";
+        //takes entire line of input
+        getline(cin, input);
+
+        //checks if user would like to exit, and if a valid command
+        // if command is valid a thread is initialized and joined, if not user
+        // is notified and brought back to the beggining
+        if (input == "exit") {
+            return (0);
+        }
+        else if (input.substr(0, input.find(" ")) == "echo") {
+
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "help") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "vol") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "path") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "tasklist") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "notepad") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "echo") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "color") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else if (input.substr(0, input.find(" ")) == "ping") {
+
+            std::thread cmd(callCommand, input);
+            cmd.join();
+        }
+        else {
+            cout << "Not a valid command\n";
+
+        }
+
+        cout << "\n";
+
+
+
+
+
+
+
+    } while (1);
+
+    return 0;
+}
