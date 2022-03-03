@@ -1,0 +1,21 @@
+// Created by Kim Eaton
+// 01-30-2022
+// Assignment 1: Call the system
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int main()
+{
+    // check the system is existing
+    if (system(NULL))
+        cout << "system exists woohoo";
+    else
+        cout << "idk who your calling";
+
+    // call system directory
+    system("dir");
+
+    //exit
+    return 0;
+}
